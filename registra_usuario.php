@@ -1,4 +1,6 @@
 <?php
-    //$_POST[];
+    $_POST['usuario'];
+    $_POST['email'];
+    $_POST['senha'];
     //$_GET
 ?>
