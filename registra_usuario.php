@@ -1,18 +1,22 @@
 <?php
 
-    require_once(db.class.php);
+    require_once('db.class.php');
 
-    $_POST['usuario'];
-    echo $_POST['usuario'];
-    $_POST['email'];
-    echo $_POST['email'];
-    $_POST['senha'];
-    echo $_POST['senha'];
+    $user = $_POST['usuario'];
+    $email = $_POST['email'];
+    $password = $_POST['senha'];
 
-    $objDb = new db();
-    $link = $objDb->conecta_mysql;
+    $objDb = new bd();
+    $link = $objDb->connect_mysql;
 
- 
+    $sql = "insert into users (user,email,password)
+     values ('$user','$email','$password')";
 
+    echo $sql;
 
+    if (mysqli_query($link,$sql)){
+        echo "Usuario cadastrado com sucesso";
+    }else{
+        echo "erro";
+    }
 ?>
