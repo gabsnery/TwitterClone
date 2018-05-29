@@ -7,12 +7,12 @@
     $password = $_POST['senha'];
 
     $objDb = new bd();
-    $link = $objDb->connect_mysql;
-
+    $link = $objDb->connect_mysql();
+    echo $link;
     $sql = "insert into users (user,email,password)
      values ('$user','$email','$password')";
 
-    echo $sql;
+    echo $sql . '</br>';
 
     if (mysqli_query($link,$sql)){
         echo "Usuario cadastrado com sucesso";

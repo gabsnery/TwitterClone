@@ -20,6 +20,7 @@
             //verifica erro de conexao
             if(mysqli_connect_errno()){
                 echo mysqli_connect_error();
+                die(mysqli_connect_error());
             }
             //retorna a conexão
             return $connection;
