@@ -43,8 +43,7 @@
 				    		<br />
 
 							<!-- Formulario de login-->
-							<form method="post" action="" id="formLogin" action ="verify_access.php">
-
+							<form method="post"  id="formLogin" action="verify_access.php">
 								<div class="form-group">
 									<input type="text" class="form-control" id="campo_user" name="user" placeholder="User" />
 								</div>
@@ -55,7 +54,6 @@
 
 								<button type="buttom" class="btn btn-primary" id="btn_login">Entrar</button>
 								<br /><br />
-
 							</form>
 							<!--Fecha Formulario de login-->
 
