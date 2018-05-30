@@ -1,3 +1,18 @@
+<?php 
+	//  IF TERNARIO
+	//      |  CONDIÇÃO         |SE VERDADEIRO   | SE FALSO
+	$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
+
+	switch ($erro) {
+		case 1:
+			$return = "Usuário ou senha inválido(s)!";
+			break;
+		default:
+			break;
+	}
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -23,7 +38,7 @@
 	    <nav class="navbar navbar-default navbar-static-top">
 	      <div class="container">
 	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="<?= $return != "" ? 'false' : 'true' ?>" aria-controls="navbar">
 	            <span class="sr-only">Toggle navigation</span>
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
@@ -35,7 +50,7 @@
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
 	            <li><a href="inscrevase.php">Inscrever-se</a></li>
-	            <li class="">
+	            <li class="<?= $erro == 1 ? 'open' : '' ?>">
 	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
 					<ul class="dropdown-menu" aria-labelledby="entrar">
 						<div class="col-md-12">
@@ -43,6 +58,7 @@
 				    		<br />
 
 							<!-- Formulario de login-->
+
 							<form method="post"  id="formLogin" action="verify_access.php">
 								<div class="form-group">
 									<input type="text" class="form-control" id="campo_user" name="user" placeholder="User" />
@@ -55,6 +71,11 @@
 								<button type="buttom" class="btn btn-primary" id="btn_login">Entrar</button>
 								<br /><br />
 							</form>
+
+							<?php
+									echo $return ? $return : "";
+							?>
+
 							<!--Fecha Formulario de login-->
 
 						</form>
