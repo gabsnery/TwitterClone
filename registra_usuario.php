@@ -1,22 +1,23 @@
 <?php
 
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     require_once('db.class.php');
 
     $user = $_POST['usuario'];
     $email = $_POST['email'];
     $password = $_POST['senha'];
 
-    $objDb = new bd();
-    $link = $objDb->connect_mysql();
-    echo $link;
-    $sql = "insert into users (user,email,password)
-     values ('$user','$email','$password')";
+    $objDb = new db();
+    $link = $objDb->conecta_mysql();
 
-    echo $sql . '</br>';
-
-    if (mysqli_query($link,$sql)){
-        echo "Usuario cadastrado com sucesso";
+    $sql = "INSERT INTO users (user, email, password) VALUES ('$user', '$email', '$password')";
+    echo $sql;
+    //executar a query
+    if(mysqli_query($link, $sql)){
+        echo "Usuário registrado com sucesso!";
     }else{
-        echo "erro";
+        echo "Erro ao registrar o usuário!";
     }
 ?>
