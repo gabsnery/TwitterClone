@@ -41,20 +41,24 @@
 						<div class="col-md-12">
 				    		<p>Você possui uma conta?</h3>
 				    		<br />
-							<form method="post" action="" id="formLogin">
-								<div class="form-group">
-									<input type="text" class="form-control" id="campo_usuario" name="usuario" placeholder="Usuário" />
-								</div>
-								
-								<div class="form-group">
-									<input type="password" class="form-control red" id="campo_senha" name="senha" placeholder="Senha" />
-								</div>
-								
-								<button type="buttom" class="btn btn-primary" id="btn_login">Entrar</button>
 
+							<!-- Formulario de login-->
+							<form method="post" action="" id="formLogin" action ="verify_access.php">
+
+								<div class="form-group">
+									<input type="text" class="form-control" id="campo_user" name="user" placeholder="User" />
+								</div>
+
+								<div class="form-group">
+									<input type="password" class="form-control red" id="campo_password" name="password" placeholder="Password" />
+								</div>
+
+								<button type="buttom" class="btn btn-primary" id="btn_login">Entrar</button>
 								<br /><br />
-								
+
 							</form>
+							<!--Fecha Formulario de login-->
+
 						</form>
 				  	</ul>
 	            </li>
