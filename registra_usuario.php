@@ -13,7 +13,7 @@
     $link = $objDb->conecta_mysql();
 
     $sql = "INSERT INTO users (user, email, password) VALUES ('$user', '$email', '$password')";
-    echo $sql;
+
     //executar a query
     if(mysqli_query($link, $sql)){
         echo "Usuário registrado com sucesso!";
