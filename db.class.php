@@ -1,6 +1,5 @@
 <?php
-
-class db{
+    class bd{
         //host
         //usuario
         //senha
@@ -10,23 +9,21 @@ class db{
         private $password = 'novaSenha1';
         private $database = 'twitter_clone';
 
-      
-        public function conecta_mysql(){
+        public function connect_mysql(){
+            //mysqli_connect(localizaão do banco,usuario,senha,banco);
+            //cria a conexão
+            $connection = mysqli_connect($this->$host,$this->$user,$this->password,$this->$database);
 
-            //criar conexao
-            $con = mysqli_connect($this->host, $this->user, $this->password, $this->database);
+            //ajusta o charset de comunicação entre a aplicação e o banco
+            mysqli_set_charset($connection,'utf8');
 
-            //ajustar o charset de comunicação entre a aplicação e o banco de dados
-            mysqli_set_charset($con, 'utf8');
-
-            //verificar se houve erro de conexão
+            //verifica erro de conexao
             if(mysqli_connect_errno()){
-                echo 'Erro ao tentar se conectar com BD MySQL: ' . mysqli_connect_error();
+                echo mysqli_connect_error();
+                return mysqli_connect_error();
             }
-
-            return $con;
-
+            //retorna a conexão
+            return $connection;
         }
-
     }
 ?>
