@@ -5,15 +5,16 @@
     error_reporting(E_ALL);
     require_once('db.class.php');
 
-    $user = $_POST['user'];
+    $user = $_POST['usuario'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = $_POST['senha'];
 
     $objDb = new db();
     $link = $objDb->conecta_mysql();
 
     $sql = "INSERT INTO users (user, email, password) VALUES ('$user', '$email', '$password')";
 
+    echo $sql;
     //executar a query
     if(mysqli_query($link, $sql)){
         echo "Usuário registrado com sucesso!";
