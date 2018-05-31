@@ -23,10 +23,11 @@
 
         $data_user = mysqli_fetch_array($result_sql_id);
 
-        echo $sql;
-        echo "</br>";
-        
-        echo var_dump($data_user);
+        if (isset($data_user['user'])){
+            echo "Usuário existe";
+        }else{
+            header('Location :index.php?erro=1');
+        }
 
     }else{
         echo "Erro na execução da consulta, favor entrar em contato com o admin do site!";
