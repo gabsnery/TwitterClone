@@ -44,7 +44,9 @@
 						<div class="col-md-12">
 				    		<p>Você possui uma conta?</h3>
 				    		<br />
-							<form method="post" action="" id="formLogin">
+
+							<!-- Formulario de login-->
+							<form method="post"  id="formLogin" action="verify_access.php">
 								<div class="form-group">
 									<input type="text" class="form-control" id="campo_usuario" name="usuario" placeholder="Usuário" />
 								</div>
@@ -54,9 +56,7 @@
 								</div>
 								
 								<button type="buttom" class="btn btn-primary" id="btn_login">Entrar</button>
-
 								<br /><br />
-								
 							</form>
 						</form>
 				  	</ul>
