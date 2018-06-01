@@ -9,8 +9,6 @@
     $objDb = new db();
     $link = $objDb->conecta_mysql();
 
-    $sql = "insert into users (user,email,password)
-     values ('$user','$email','$password')";
 
     $sql = "INSERT INTO users (user, email, password) VALUES ('$user', '$email', '$password')";
     //executar a query
