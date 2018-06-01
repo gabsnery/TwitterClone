@@ -1,11 +1,11 @@
-<?php 
+<?php
 	//  IF TERNARIO
 	//      |  CONDIÇÃO         |SE VERDADEIRO   | SE FALSO
 	$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
-
+	
 	switch ($erro) {
 		case 1:
-			$return = "Usuário ou senha inválido(s)!";
+				$result = 'Usuário e ou senha inválido(s)!';
 			break;
 		default:
 			break;
@@ -28,7 +28,34 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	
 		<script>
-			// código javascript						
+
+		// SE O ARQUIVO CARREGOU COM SUCESSO
+			$(document).ready( function(){
+
+				// NO CLICK DO BOTÃO DE LOGIN
+				$('#btn_login').click(function(){
+
+					var campo_vazio = false;
+					//TESTA USUARIO
+					if($('#campo_user').val() == ''){
+						$('#campo_user').css({'border-color':'#A94442'});
+						campo_vazio = true;
+					}else{
+						$('#campo_user').css({'border-color':''});
+					}
+					//TESTE SENHA
+					if($('#campo_password').val() == ''){
+						$('#campo_password').css({'border-color':'#A94442'});
+						campo_vazio = true;
+					}else{
+						$('#campo_password').css({'border-color':''});
+					}
+
+					//SE ALGUM CAMPO ESTIVER VAZIO NÃO DÁ O SUBMIT DO FORM
+					if (campo_vazio == true) return false;
+				});//$('#btn_login').click(function(){
+
+			});//$(document).ready( function(){
 		</script>
 	</head>
 
@@ -50,7 +77,7 @@
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
 	            <li><a href="inscrevase.php">Inscrever-se</a></li>
-	            <li class="<?= $erro == 1 ? 'open' : '' ?>">
+	            <li class="<?= isset($erro) == 1 ?'open' : ''?>">
 	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
 					<ul class="dropdown-menu" aria-labelledby="entrar">
 						<div class="col-md-12">
@@ -61,23 +88,17 @@
 
 							<form method="post"  id="formLogin" action="verify_access.php">
 								<div class="form-group">
-									<input type="text" class="form-control" id="campo_user" name="user" placeholder="User" />
+									<input type="text" class="form-control" id="campo_user" name="user" placeholder="Usuário" />
 								</div>
-
+								
 								<div class="form-group">
-									<input type="password" class="form-control red" id="campo_password" name="password" placeholder="Password" />
+									<input type="password" class="form-control red" id="campo_password" name="password" placeholder="Senha" />
 								</div>
-
+								
 								<button type="buttom" class="btn btn-primary" id="btn_login">Entrar</button>
 								<br /><br />
 							</form>
-
-							<?php
-									echo $return ? $return : "";
-							?>
-
-							<!--Fecha Formulario de login-->
-
+							<?= isset($result) ? "<font color='#FF0000'>$result</font>":''?>
 						</form>
 				  	</ul>
 	            </li>
