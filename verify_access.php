@@ -3,7 +3,7 @@
     require_once('db.class.php');
 
     //o post pega a partir do atributo NAME
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
     $user = $_POST['user'];
 
     $objDB = new db();
@@ -26,7 +26,8 @@
             $_SESSION['user'] = $data_user['user'];
             $_SESSION['id'] = $data_user['id'];
             $_SESSION['email'] = $data_user['email'];
-            
+
+            setcookie("id_user",$data_user['id'],time()+8000);
             header('Location :home.php');
         }else{
             //Re-direciona para a pagina index

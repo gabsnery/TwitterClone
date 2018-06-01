@@ -1,6 +1,9 @@
 <?php
      session_start();
 
+		 //echo $_COOKIE["user"];
+
+		 
      if (!isset($_SESSION['user'])){
         header('Location : index.php?erro=2');
      }
@@ -37,7 +40,7 @@
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-	            <li><a href="#">Sair</a></li>
+	            <li><a href="sair.php">Sair</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
 	      </div>
@@ -52,9 +55,9 @@
 	    	<div class="col-md-4">
                 Usuário autenticado!!!!
                 <br/>
-                <?= isset($_SESSION['user'])?>
+                <?= ($_SESSION['user'])?>
                 <br/>
-                <?= isset($_SESSION['email'])?>
+                <?= ($_SESSION['email'])?>
 			</div>
 			<div class="col-md-4"></div>
 

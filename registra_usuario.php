@@ -4,10 +4,11 @@
 
     $user = $_POST['user'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
 
     $objDb = new db();
     $link = $objDb->conecta_mysql();
+
 
 
     $sql = "INSERT INTO users (user, email, password) VALUES ('$user', '$email', '$password')";

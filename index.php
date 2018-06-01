@@ -112,7 +112,7 @@
 
 	      <!-- Main component for a primary marketing message or call to action -->
 	      <div class="jumbotron">
-	        <h1>Bem vindo ao twitter clone</h1>
+	        <h1>Bem vindo ao twitter</h1>
 	        <p>Veja o que está acontecendo agora...</p>
 	      </div>
 
