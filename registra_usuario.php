@@ -34,7 +34,7 @@
         echo "Erro ao localizar o registro do usuário!";
     }
 
-    if(($email_existe == 1) || ($usuario_existe == 1)){
+    if((isset($email_existe) == 1) || (isset($usuario_existe) == 1)){
 
         $retorno_get = '';
         if($email_existe){

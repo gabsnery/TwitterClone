@@ -43,35 +43,43 @@
 	            <li><a href="sair.php">Sair</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
-	      </div>
+	      </div> <!--/<div class="container">-->
 	    </nav>
 
 
 	    <div class="container">
-	    	
-	    	<br /><br />
-
-	    	<div class="col-md-4"></div>
-	    	<div class="col-md-4">
-                Usuário autenticado!!!!
-                <br/>
-                <?= ($_SESSION['user'])?>
-                <br/>
-                <?= ($_SESSION['email'])?>
+	    	<div class="col-md-3"> <!-- Usuario, contagem de tweets e seguidores-->
+		 			<div class="panel panel-default">
+		 				<div class="panel-body">
+		 					<h4><?= $_SESSION['user']?></h4>
+		 					<hr/>
+							<div class="col-md-6">TWEETS <br/> 1</div>
+							<div class="col-md-6">SEGUIDORES </br> 1</div>
+						 </div>
+					 </div>
+				</div> <!--/ Usuario, contagem de tweets e seguidores-->
+	    	<div class="col-md-6"><!--TWEET-->	
+		 				<div class="panel panel-default">
+		 					<div class="panel-body">
+							 	<div class="input-group">
+		 							<input type="text" class="form-control" placeholder = "O que está acontecendo agora?" maxlength = "140">
+									 <span class = "input-group-btn">
+		 								<button class="btn btn-default" type = "button">Tweet</button>
+									 </span>
+								 </div>
+							 </div>
+						 </div>
+				</div><!--TWEET-->
+			<div class="col-md-3">	
+		 		<div class="panel panel-default">
+		 		  <div class="panel-body">
+		 				<h4><a href="#">Procurar amigos</a></h4>
+					</div>
+				</div>
 			</div>
-			<div class="col-md-4"></div>
-
-			<div class="clearfix"></div>
-			<br />
-			<div class="col-md-4"></div>
-			<div class="col-md-4"></div>
-			<div class="col-md-4"></div>
 
 		</div>
-
-
-	    </div>
-	
+		</div>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	
 	</body>
