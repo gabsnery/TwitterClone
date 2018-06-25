@@ -24,32 +24,21 @@
 		<script type="text/javascript">
 
 				$(document).ready(function () {
-					$('#btn_tweet').click(function(){
-						if ($('#texto_tweet').val().length > 0){
+					$('#btn_search').click(function(){
+						if ($('#nome_tweet').val().length > 0){
 							
 							$.ajax({
-								url: 'inclui_tweet.php',
+								url: 'search_person.php',
 								method: 'post',
-								data: $('#form_tweet').serialize(),
+								data: $('#form_procurar_pessoas').serialize(),
 								success: function(data){
-									$('#texto_tweet').val('');
-									atualizaTweet();
+                                    alert(data);
+									$('#id_pessoas').html(data);
 								}
 							});
 						}
 					});	
 
-					function atualizaTweet() {
-
-						$.ajax({
-							url: 'get_tweet.php',
-							success: function(data){
-								$('#tweets').html(data);
-							}
-						});
-						
-					}
-					atualizaTweet();
 				});
 
 		</script>
@@ -72,6 +61,7 @@
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
+              <li><a href="home.php">Home</a></li>
 	            <li><a href="sair.php">Sair</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
@@ -93,22 +83,24 @@
 	    	<div class="col-md-6"><!--TWEET-->	
 		 				<div class="panel panel-default">
 		 					<div class="panel-body">
-							 	<form class="input-group" id="form_tweet">
+							 	<form class="input-group" id="form_procurar_pessoas">
 
-		 							<input type="text" name="texto_tweet" id="texto_tweet" class="form-control" placeholder = "O que está acontecendo agora?" maxlength = "140">
+		 							<input type="text" name="nome_tweet" id="nome_tweet" class="form-control" placeholder = "Quem você está procurando?" maxlength = "140">
 									 <span class = "input-group-btn">
-		 								<button class="btn btn-default" id="btn_tweet"  type = "button">Tweet</button>
+		 								<button class="btn btn-default" id="btn_search"  type = "button">Procurar</button>
 									 </span>
 
 								 </form><!--<form class="panel-body">-->
 							 </div> 
 						 </div>
-						 <div id="tweets" name="" class="list-group"></div>
+						 <div id="id_pessoas" name="" class="list-group"></div>
 				</div><!--TWEET-->
+
+
 			<div class="col-md-3">	
 		 		<div class="panel panel-default">
 		 		  <div class="panel-body">
-		 				<h4><a href="procurar_pessoas.php">Procurar amigos</a></h4>
+		 		<!--		<h4><a href="#">Procurar amigos</a></h4>-->
 					</div>
 				</div>
 			</div>

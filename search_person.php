@@ -10,23 +10,23 @@
      require_once('db.class.php');
 
      $id_user = $_SESSION['id'];
-
+     $nome_pessoa = $_POST['nome_tweet'];
      $objDb = new db();
      $link = $objDb->conecta_mysql();
 
-     $sql = "SELECT DATE_FORMAT(t.data_inclusao,'%d %b %Y %T') as data_inclusao,t.tweet,u.user FROM tweet as t INNER JOIN users as u on u.id=t.id_user  ORDER BY data_inclusao DESC";
+     $sql = "SELECT* FROM users WHERE user = '$nome_pessoa' and id <> $id_user ";
     
      $resultado_id = mysqli_query($link,$sql);
 
      if ($resultado_id){
         while($registro = mysqli_fetch_array($resultado_id,MYSQLI_ASSOC)){
             echo '<a href="#" class="list-group-item">';
-                echo '<h4  class="list-group-item-heading">'.$registro['user'].' <small>'.$registro['data_inclusao'].'</small></h4>';
-                echo '<p class="list-group-item-text">'.$registro['tweet'].'</p>';
+               echo '<strong>'.$registro['user'].'</strong> <small>'.$registro['email'];
+           //     echo '<p class="list-group-item-text">'.$registro['tweet'].'</p>';
             echo '</a>';
-
+           //var_dump($registro); 
         }
      }else{
-         echo "Erro na consulta de tweets no banco de dados.";
+         echo "Erro na consulta de usuarios no banco de dados.";
      }
 ?>
