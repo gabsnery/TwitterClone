@@ -36,12 +36,26 @@
 									$('.btn_follow').click( function(){
 										var id_user = $(this).data('id_user');
 
+										$('#btn_follow_'+id_user).hide();
+										$('#btn_deixar_follow_'+id_user).show();
 										$.ajax({
 											url:'follow.php',
 											method : 'post',
 											data : {seguir_id_usuario : id_user},
 											success : function(data){
-												alert('Funcionou');
+											}
+										});
+									});
+
+									$('.btn_deixar_follow').click( function(){
+										var id_user = $(this).data('id_user');
+										$('#btn_deixar_follow_'+id_user).hide();
+										$('#btn_follow_'+id_user).show();
+										$.ajax({
+											url:'unfollow.php',
+											method : 'post',
+											data : {deixar_seguir_id_usuario : id_user},
+											success : function(data){
 											}
 										});
 									});

@@ -23,7 +23,23 @@
             echo '<a href="#" class="list-group-item">';
                 echo '<strong>'.$registro['user'].'</strong> <small>'.$registro['email'].'</small>';
                 echo '<p class = "list-group-item-text pull-right">';
-                    echo '<button type = "button" class = "btn btn-default btn_follow" data-id_user = "'.$registro['id'].'">Seguir</button>';
+
+                    $sql = "SELECT * FROM user_followers WHERE id_user = $id_user and  id_user_followed = ".$registro['id']." ";
+
+                   $resultado_id2 = mysqli_query($link,$sql);
+                    if ($resultado_id2){
+                        $data_user = mysqli_fetch_array($resultado_id2);
+                       if ( $data_user['id_follower'] ){
+                            echo '<button type = "button" class = "btn btn-primary btn_deixar_follow" id="btn_deixar_follow_'.$registro['id'].'" data-id_user = "'.$registro['id'].'">Unfollow</button>';
+                            echo '<button type = "button" style = "display:none" class = "btn btn-default btn_follow" id = "btn_follow_'.$registro['id'].'" data-id_user = "'.$registro['id'].'">Follow</button>';
+                        }else{
+                            echo '<button type = "button" class = "btn btn-default btn_follow" id = "btn_follow_'.$registro['id'].'" data-id_user = "'.$registro['id'].'">Follow</button>';
+                            echo '<button type = "button" style = "display:none" class = "btn btn-primary btn_deixar_follow" id="btn_deixar_follow_'.$registro['id'].'" data-id_user = "'.$registro['id'].'">Unfollow</button>';
+                        }
+                   }else{
+                       echo $sql;
+                   }
+
                 echo '</p>';
                 echo '<div class = "clearfix"></div>';
             echo '</a>';
