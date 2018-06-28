@@ -53,7 +53,7 @@
     $sql = "INSERT INTO users (user, email, password) VALUES ('$user', '$email', '$password')";
     //executar a query
     if(mysqli_query($link, $sql)){
-        echo "Usuário registrado com sucesso!";
+        header('Location: home.php?');
     }else{
         echo "erro";
     }

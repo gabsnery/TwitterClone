@@ -32,8 +32,19 @@
 								method: 'post',
 								data: $('#form_procurar_pessoas').serialize(),
 								success: function(data){
-                                    alert(data);
 									$('#id_pessoas').html(data);
+									$('.btn_follow').click( function(){
+										var id_user = $(this).data('id_user');
+
+										$.ajax({
+											url:'follow.php',
+											method : 'post',
+											data : {seguir_id_usuario : id_user},
+											success : function(data){
+												alert('Funcionou');
+											}
+										});
+									});
 								}
 							});
 						}

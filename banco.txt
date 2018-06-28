@@ -1,5 +1,5 @@
 
-use whatsapp_clone;
+use twitter_clone;
 create table users(
 	id int not null primary key auto_increment,
 	user varchar(50) not null,
@@ -12,4 +12,14 @@ create table tweet(
 	id_user int not null,
 	tweet varchar(140) not null,
 	data_inclusao TIMESTAMP  DEFAULT CURRENT_TIMESTAMP
+);
+
+
+use twitter_clone;
+create table user_followers(
+	id_follower int not null primary Key AUTO_INCREMENT,
+	id_user int not null,
+    id_user_followed int not null,
+	data_relat timestamp default current_timestamp,
+    constraint relacao unique (id_user,id_user_followed)
 );
