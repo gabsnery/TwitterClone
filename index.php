@@ -96,6 +96,7 @@
 								</div>
 								
 								<button type="buttom" class="btn btn-primary" id="btn_login">Entrar</button>
+								<p><a href="esqueci_senha.php">Esqueci minha senha</a></p>
 								<br /><br />
 							</form>
 							<?= isset($result) ? "<font color='#FF0000'>$result</font>":''?>
