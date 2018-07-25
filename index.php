@@ -1,6 +1,7 @@
 <?php
 	//  IF TERNARIO
 	//      |  CONDIÇÃO         |SE VERDADEIRO   | SE FALSO
+	
 	$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 	
 	switch ($erro) {

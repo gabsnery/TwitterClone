@@ -21,6 +21,7 @@ class db{
             $database = isset($db['database']) ? $db['database'] : NULL;
             $database = $db['database'];
             $host = isset($db['host']) ? $db['host'] : NULL;
+
             define("DB_SERVER", $host);
             define("DB_USER", $user);
             define("DB_PASSWORD", $password);

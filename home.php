@@ -2,14 +2,14 @@
      session_start();
 
 		 //echo $_COOKIE["user"];
-
+	
 		 
      if (!isset($_SESSION['user'])){
-        header('Location : index.php?erro=2');
+        header('Location:index.php?erro=2');
 		 }
 
 		 require_once('db.class.php');
-
+		 
      $id_user = $_SESSION['id'];
 
      $objDb = new db();
