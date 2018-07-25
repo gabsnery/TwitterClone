@@ -21,10 +21,6 @@
 	<body>
 		<?php include 'header.php';?>	
 		<!-- Static navbar -->
-	   
-	        
-	 
-
 	    <div class="container">
 	    	
 	    	<br /><br />
