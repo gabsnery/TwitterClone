@@ -2,11 +2,13 @@
      session_start();
 
 		 //echo $_COOKIE["user"];
-
-		 
+	 
      if (!isset($_SESSION['user'])){
         header('Location : index.php?erro=2');
-     }
+	 }
+	 require_once('db.class.php');
+		
+     $id_user = $_SESSION['id'];
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -95,16 +97,11 @@
 
 
 	    <div class="container">
-	    	<div class="col-md-3"> <!-- Usuario, contagem de tweets e seguidores-->
-		 			<div class="panel panel-default">
-		 				<div class="panel-body">
-		 					<h4><?= $_SESSION['user']?></h4>
-		 					<hr/>
-							<div class="col-md-6">TWEETS<br/> 1</div>
-							<div class="col-md-6">SEGUIDORES</br> 1</div>
-						 </div>
-					 </div>
-				</div> <!--/ Usuario, contagem de tweets e seguidores-->
+			<?php
+				
+			include 'menuleft.php';
+
+			?>
 	    	<div class="col-md-6"><!--TWEET-->	
 		 				<div class="panel panel-default">
 		 					<div class="panel-body">
