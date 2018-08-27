@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="jogo.js"></script>
 </head>
 <body>
 
@@ -21,15 +22,15 @@
                     <td align = "center">
                         <img src="imagens/jogador_1.png" alt="Foto do Jogador 1">
                         <br>
-                        <input type="text" placeholder="Digite um apelido" maxlength="10" style="border:0px">
+                        <input id="entrada_apelido_jogador_1" type="text" placeholder="Digite um apelido" maxlength="10" style="border:0px">
                     </td>
-                    <td align = "center"v>
+                    <td align = "center" id = "btn_iniciar_jogo">
                         <img src="imagens\iniciar.png" alt="Botao iniciar">
                     </td>
                     <td align = "center">
                         <img src="imagens/jogador_2.png" alt="Foto do Jogador 2">
                         <br>
-                        <input type="text" placeholder="Digite um apelido" maxlength="10" style="border:0px">
+                        <input id="entrada_apelido_jogador_2" type="text" placeholder="Digite um apelido" maxlength="10" style="border:0px">
                     </td>
 
                 </tr>
@@ -41,21 +42,39 @@
             <img src="imagens\jogador_1.png" alt="">
         </div>
         <div style="display:inline-block;">
-            <table border="1">
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+            <table >
+                <tr >
+                    <td style="border-bottom: solid 1px red; border-right: solid 1px red;">
+                        <div style="width : 100px; height : 100px;"></div>
+                    </td>
+                    <td style="border-bottom: solid 1px red; border-right: solid 1px red;">
+                        <div style="width : 100px; height : 100px;"></div>
+                    </td>
+                    <td style="border-bottom: solid 1px red;">
+                        <div style="width : 100px; height : 100px;"></div>
+                    </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td style="border-bottom: solid 1px red; border-right: solid 1px red;">
+                        <div style="width : 100px; height : 100px;"></div>
+                    </td>
+                    <td style="border-bottom: solid 1px red; border-right: solid 1px red;">
+                        <div style="width : 100px; height : 100px;"></div>
+                    </td>
+                    <td style="border-bottom: solid 1px red;">
+                        <div style="width : 100px; height : 100px;"></div>
+                    </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td style=" border-right: solid 1px red;">
+                        <div style="width : 100px; height : 100px;"></div>
+                    </td>
+                    <td style=" border-right: solid 1px red;">
+                        <div style="width : 100px; height : 100px;"></div>
+                    </td>
+                    <td>
+                        <div style="width : 100px; height : 100px;"></div>
+                    </td>
                 </tr>
             </table>
         </div>
