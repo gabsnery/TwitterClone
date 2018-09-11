@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Jogo da Velha</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="jogo.js"></script>
+   <!-- <script src="jogo.js"></script>-->
+    <script type="text/javascript" src="jogo.js?<?php echo time(); ?>"></script>
 </head>
 <body>
 
@@ -37,7 +38,7 @@
             </tbody>
         </table>
     </div>
-    <div id="palco_jogo"  align = "center" style="margin-top:50px;">
+    <div id="palco_jogo"  align = "center" style="display:none;margin-top:50px;">
         <div style="display:inline-block;">
             <img src="imagens\jogador_1.png" alt="">
             <br>
@@ -47,35 +48,35 @@
             <table >
                 <tr >
                     <td style="border-bottom: solid 1px red; border-right: solid 1px red;">
-                        <div style="width : 100px; height : 100px;"></div>
+                        <div class="jogada" id="A1" style="width : 100px; height : 100px;"></div>
                     </td>
                     <td style="border-bottom: solid 1px red; border-right: solid 1px red;">
-                        <div style="width : 100px; height : 100px;"></div>
+                        <div class="jogada" id="A2" style="width : 100px; height : 100px;"></div>
                     </td>
                     <td style="border-bottom: solid 1px red;">
-                        <div style="width : 100px; height : 100px;"></div>
+                        <div class="jogada" id="A3" style="width : 100px; height : 100px;"></div>
                     </td>
                 </tr>
                 <tr>
                     <td style="border-bottom: solid 1px red; border-right: solid 1px red;">
-                        <div style="width : 100px; height : 100px;"></div>
+                        <div class="jogada" id="B1" style="width : 100px; height : 100px;"></div>
                     </td>
                     <td style="border-bottom: solid 1px red; border-right: solid 1px red;">
-                        <div style="width : 100px; height : 100px;"></div>
+                        <div class="jogada" id="B2" style="width : 100px; height : 100px;"></div>
                     </td>
                     <td style="border-bottom: solid 1px red;">
-                        <div style="width : 100px; height : 100px;"></div>
+                        <div class="jogada" id="B3" style="width : 100px; height : 100px;"></div>
                     </td>
                 </tr>
                 <tr>
                     <td style=" border-right: solid 1px red;">
-                        <div style="width : 100px; height : 100px;"></div>
+                        <div class="jogada" id="C1" style="width : 100px; height : 100px;"></div>
                     </td>
                     <td style=" border-right: solid 1px red;">
-                        <div style="width : 100px; height : 100px;"></div>
+                        <div class="jogada" id="C2" style="width : 100px; height : 100px;"></div>
                     </td>
                     <td>
-                        <div style="width : 100px; height : 100px;"></div>
+                        <div class="jogada"  id="C3" style="width : 100px; height : 100px;"></div>
                     </td>
                 </tr>
             </table>
