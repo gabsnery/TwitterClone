@@ -11,12 +11,15 @@ if (empty($valor)){
 //is_numeric()
 //true -> 0-9
 //false -> vazio ou a-z
-echo "oi";
+
 $valor = 0 ; // verdadeiro
-$valor = '123' //verdadeiro
-$valor = '1A23' //falso
+$valor = '123'; //verdadeiro
+$valor = '1A23'; //falso
 if (is_numeric($valor)){
     echo "<br>numero";
 }
-
+//-------------------------------
+//ucfirst()
+//Coloca a primeira letra da string em capslock
+echo ucfirst("oi"); //Oi
 ?>
