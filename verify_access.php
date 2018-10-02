@@ -28,10 +28,10 @@
             $_SESSION['email'] = $data_user['email'];
 
             setcookie("id_user",$data_user['id'],time()+8000);
-            header('Location :home.php');
+            header('Location:home.php');
         }else{
             //Re-direciona para a pagina index
-            header('Location: index.php?erro=1');
+            header('Location:index.php?erro=1');
         }
 
     }else{

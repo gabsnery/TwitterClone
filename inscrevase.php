@@ -1,6 +1,7 @@
 <?php
 		$erro_usuario = isset($_GET['erro_usuario']) ?$_GET['erro_usuario']:0 ;
 		$erro_email = isset($_GET['erro_email']) ?$_GET['erro_email']:0;
+		$pagina = 'increvase';
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -18,29 +19,8 @@
 	</head>
 
 	<body>
-
+		<?php include 'header.php';?>	
 		<!-- Static navbar -->
-	    <nav class="navbar navbar-default navbar-static-top">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <img src="imagens/icone_twitter.png" />
-	        </div>
-	        
-	        <div id="navbar" class="navbar-collapse collapse">
-	          <ul class="nav navbar-nav navbar-right">
-	            <li><a href="index.php">Voltar para Home</a></li>
-	          </ul>
-	        </div><!--/.nav-collapse -->
-	      </div>
-	    </nav>
-
-
 	    <div class="container">
 	    	
 	    	<br /><br />
