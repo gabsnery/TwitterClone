@@ -22,4 +22,19 @@ if (is_numeric($valor)){
 //ucfirst()
 //Coloca a primeira letra da string em capslock
 echo ucfirst("oi"); //Oi
+echo '<br>';
+//---------------------------
+//Array
+$frutas = array(0=>'Gabi',1=>'Douglas',2=>'Simone');
+
+$itens_array = count($frutas);
+
+echo $itens_array;
+
+echo '<br>';
+
+$array1 = array('mac','linux');
+$array2 = array('windows');
+
+//
 ?>
