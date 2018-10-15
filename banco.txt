@@ -24,3 +24,4 @@ create table user_followers(
     constraint relacao unique (id_user,id_user_followed)
 );
 
+teste
