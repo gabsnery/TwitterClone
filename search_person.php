@@ -14,12 +14,12 @@
      $objDb = new db();
      $link = $objDb->conecta_mysql();
 
-     $sql = "SELECT* FROM users WHERE user like '%$nome_pessoa%' and id <> $id_user order by user";
+     $sql = "SELECT* FROM users WHERE user like '%$nome_pessoa%' and id <> $id_user order by user"; //FAZ A CONSULTA DOS USUARIOS
     
-     $resultado_id = mysqli_query($link,$sql);
+     $resultado_id = mysqli_query($link,$sql); //EXECUTA A CONSULTA E GUARDA O RETORNO NA VARIAVEL "$resultado_id"
 
-     if ($resultado_id){
-        while($registro = mysqli_fetch_array($resultado_id,MYSQLI_ASSOC)){
+     if ($resultado_id){ //SE NÃO HOUVE ERRO
+        while($registro = mysqli_fetch_array($resultado_id,MYSQLI_ASSOC)){ // PARA CADA REGISTRO DA ARRAY RETORNADA POR NUMERO
             echo '<a href="#" class="list-group-item">';
                 echo '<strong>'.$registro['user'].'</strong> <small>'.$registro['email'].'</small>';
                 echo '<p class = "list-group-item-text pull-right">';

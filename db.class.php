@@ -13,7 +13,11 @@ class db{
             if (file_exists("../configTwitter.ini")) {
                 $db = parse_ini_file("../configTwitter.ini");
             } else {
-                throw new Exception("arquivo $name nao encontrado");
+                if (file_exists("../../configTwitter.ini")) {
+                    $db = parse_ini_file("../../configTwitter.ini");
+                } else {
+                    throw new Exception("arquivo $name nao encontrado");
+                }
             }
     
             $user = isset($db['user']) ? $db['user'] : NULL;

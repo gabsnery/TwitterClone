@@ -23,8 +23,9 @@
     }
 
     //TESTA SE EXISTE CONTA COM O EMAIL INFORMADO
-    $sql = "select * from users where email = '$email'";
-    if($result_id = mysqli_query($link,$sql)){
+    $sql = "select * from users where email = '$email'"; //FAZ A CONSULTA
+
+    if($result_id = mysqli_query($link,$sql)){  
         $data_user = mysqli_fetch_array($result_id);
         if ( $data_user['email'] ){
             echo "Usuário já cadastrado para este e-mail!";
