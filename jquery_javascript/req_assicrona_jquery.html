@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ajax facil com jquery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script language = "javascript">
+    
+        $(document).ready(function(){
+            $('.btn_carrega_conteudo').click(function(){
+                var carrega_url = this.id;
+                carrega_url  =carrega_url + "_conteudo.html";
+                //alert(carrega_url);
+                $.ajax({
+                    url: carrega_url,
+                    success: function(data){
+                        $('#div_conteudo').html(data);
+                    },
+                    beforeSend: function(){
+                        $('#loader').css({display:"block"});
+                    },
+                    complete: function(){
+                        $('#loader').css({display:"none"});
+                    }
+                });
+            }
+            );
+        }
+        );
+    </script>
+
+
+</head>
+<body>
+    <div class="container">
+
+    <div class="row">
+        <div class="col-md-4 center"></div>
+        <div class="col-md-4 center">
+        <a href="#" class="btn btn-primary btn_carrega_conteudo" id="pagina_1" onclick="fazerRequisicao('pagina_1_conteudo.html', 'div_conteudo')">Página 1</a>
+        <a href="#" class="btn btn-primary btn_carrega_conteudo" id="pagina_2" onclick="fazerRequisicao('pagina_2_conteudo.html', 'div_conteudo')">Página 2</a>
+        <a href="#" class="btn btn-primary btn_carrega_conteudo" id="pagina_3" onclick="fazerRequisicao('pagina_3_conteudo.html', 'div_conteudo')">Página 3</a>
+        </div>
+        <div class="col-md-4 center"></div>
+        </div>
+        <div id="div_conteudo"></div>
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-10" id="div_conteudo">
+                <img src="loader.gif" alt="Carregando..." style="display:block" id="loader">
+            </div>
+                
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+</body>
+</html>
