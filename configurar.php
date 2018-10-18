@@ -16,16 +16,43 @@
 		<meta charset="UTF-8">
 
 		<title>Twitter clone</title>
-		
+
 		<!-- jquery - link cdn -->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	
+
 		<script type="text/javascript">
+			$(document).ready(function () {
+				$('#btn_confEmail').click(function() {
+					$.ajax({
+						url: 'configuracao/confEmail.html',
+						success: function(data){
+							$('#conf').html(data);
+						}
+					});	
+				});
 
+				$('#btn_confPass').click(function() {
+					$.ajax({
+						url: 'configuracao/confPass.html',
+						success: function(data){
+							$('#conf').html(data);
+						}
+					});	
+				});
 
+				$('#btn_confUser').click(function() {
+					$.ajax({
+						url: 'configuracao/confUser.html',
+						success: function(data){
+							$('#conf').html(data);
+						}
+					});	
+				});
+
+			});
 		</script>
 		</head>
 
@@ -47,7 +74,7 @@
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
 	            <li><a href="sair.php">Sair</a></li>
-				<li><a href="configurar.php">Configurar</a></li>
+							<li><a href="home.php">Home</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
 	      </div> <!--/<div class="container">-->
@@ -59,9 +86,9 @@
 		 			<div class="panel panel-default">
 		 				<div class="panel-body">
 		 					<h4><?= $_SESSION['user']?></h4>
-                             <h4><a href="procurar_pessoas.php">Mudar E-mail</a></h4>
-                             <h4><a href="procurar_pessoas.php">Mudar Usuario</a></h4>
-                             <h4><a href="procurar_pessoas.php">Mudar Senha</a></h4>
+														 <button type="button" id="btn_confEmail" class="btn btn-link" ><h4>Mudar E-mail</h4></button>
+                             <button type="button" id="btn_confUser"  class="btn btn-link" ><h4>Mudar Usuario</h4></button>
+                             <button type="button" id="btn_confPass"  class="btn btn-link" ><h4>Mudar Senha</h4></button>
                     	 </div>
 					 </div>
 				</div> <!--/ Usuario, contagem de tweets e seguidores-->
@@ -72,7 +99,7 @@
 								 </form><!--<form class="panel-body">-->
 							 </div> 
 						 </div>
-						 <div id="tweets" name="" class="list-group"></div>
+						 <div id="conf" name="" class="list-group"></div>
 				</div><!--TWEET-->
 	
 

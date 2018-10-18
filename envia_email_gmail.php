@@ -8,7 +8,11 @@
 	if (file_exists("../configTwitter.ini")) {
 		$db = parse_ini_file("../configTwitter.ini");
 	} else {
-		throw new Exception("arquivo $name nao encontrado");
+		if (file_exists("../../configTwitter.ini")) {
+			$db = parse_ini_file("../../configTwitter.ini");
+		} else {
+			throw new Exception("arquivo $name nao encontrado");
+		}
 	}
 
 	$password_email = isset($db['pass_email ']) ? $db['pass_email '] : NULL;
