@@ -15,4 +15,13 @@
          $link = $ObjDB->connecta_mysql();
 
          $sql = "update users set user = '".$newUser."' where id=".$id_user;
+
+         $result_sql_id = mysqli_query($link,$sql);
+
+         if($result_sql_id){
+            echo " Usuário alterado com sucesso";
+         }else{
+            echo " Erro ao alterar usuario";
+         }
+
 ?>

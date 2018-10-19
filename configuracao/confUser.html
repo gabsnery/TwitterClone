@@ -1,14 +1,48 @@
-<script src=""></script>
+		<!-- jquery - link cdn -->
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script type="text/javascript">
+
+
+    $(document).ready(function() {
+
+           $('#novo_usuario').keypress(function (e) {
+                var key = e.which;
+                if(key == 13)  // the enter key code
+                {
+                    $('#salvar').click();
+                    return false;  
+                }
+            });   
+
+            $('#salvar').click(function() {
+                var novo_usuario = $('#novo_usuario').val();
+                $.ajax({
+                        url:'configuracao/change_user.php',
+                        method : 'POST',
+                        data : {novo_usuario : novo_usuario},
+                        success : function(data){
+                            $('#resposta').html(data);
+                        }
+                    });
+                });
+    });
+
+</script>
+
 <div class="panel panel-default">
 	<div class="panel-body">
-        <form method="POST" action="change_user.php">
-            <input type="text" name="nome_tweet" id="nome_tweet" class="form-control" placeholder = "Novo usuario" maxlength = "140">
-            <br>
-            <input type="submit" class="btn btn-primary pull-right"  value="Salvar">
-        </form>
-        coisas certas
-        Varias coisas erradas
-        mais erros
+            <form class="" method="post" id="form_altera">
+                <input type="text" name="novo_usuario" id="novo_usuario" autocomplete="off" class="form-control" placeholder = "Novo usuario" maxlength = "140">
+                <br>
+                <button class="btn btn-primary pull-right" id="salvar"  type = "button">Salvar</button>
+            </form><!--<form class="panel-body">-->
+            
     </div>
+    <div class="panel-body">
+            <div id="resposta" name="resposta" class="list-group"></div>
+            </div>
 </div>
 
