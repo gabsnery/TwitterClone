@@ -22,6 +22,7 @@
                 $.ajax({
                         url:'configuracao/change_user.php',
                         method : 'POST',
+                        dataType: "html",
                         data : {novo_usuario : novo_usuario},
                         success : function(data){
                             $('#resposta').html(data);
@@ -43,7 +44,7 @@
             
     </div>
     <div class="panel-body">
-        <div id="resposta" name="resposta" class="list-group"></div>
+        <div id="resposta1" name="resposta" class="list-group"></div>
     </div>
 </div>
 
