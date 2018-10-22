@@ -1,9 +1,7 @@
-<!--TESTE DE CODE REVIEW->
+
 <?php        
 
-
-       session_start();
-
+      session_start();
          if (!isset($_SESSION['user'])){
             header('Location : index.php?erro=2');
          }
@@ -13,7 +11,7 @@
          $id_user = $_SESSION['id'];
          $newUser = $_POST['novo_usuario'];
 
-    
+         
          $objDb = new db();
          $link = $objDb->conecta_mysql();
      
@@ -43,7 +41,6 @@
             echo "</div>";
          }else{
             echo " Erro ao alterar usuario";
-         }
+         } 
 
 ?>
-<span></span>
