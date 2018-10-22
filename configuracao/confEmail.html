@@ -1,38 +1,12 @@
-<!-- jquery - link cdn -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-
-<!-- bootstrap - link cdn -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script type = "text/javascript">
-
-    $(document).ready(function () {
-        //$('#novo_email')   
-
-        $('#salvar').click(function(){
-            var novo_email = $('#email_novo').val();
-            $.ajax({
-                url : "configuracao/change_email.php",
-                method : "POST",
-                data:{novo_email : novo_email, teste : "testdddde"},
-                success : function(data){
-                    $('#resposta').html(data);
-                }
-            });
-        });
-    });
-
-</script>
 <div class="panel panel-default">
-    <div class="panel-body">
-        <form method="POST" action="change_email.php" >
-            <input type="text" name="campo_alterar" id="email_novo" class="form-control" placeholder = "Novo E-mail" maxlength = "140">
-            <br>
-            <input type="submit" class="btn btn-primary pull-right"  value="Salvar">
-        </form>
+        <div class="panel-body">
+            <form method="POST" action="change_email.php" >
+                <input type="text" name="nome_tweet" id="email_novo" class="form-control" placeholder = "Novo E-mail" maxlength = "140">
+                <br>
+                <input type="submit" class="btn btn-primary pull-right"  value="Salvar">
+            </form>
+            
+        </div>
     </div>
-    <div class="panel-body">
-        <div id = "resposta" name = "resposta" class="list-group"></div>
-    </div>
-</div>
-
+    
     
