@@ -1,27 +1,17 @@
-<?php        
-        session_start();
+<?php
+    session_start();
 
-        $newUser = $_POST['email_novo'];
-    
-         if (!isset($_SESSION['user'])){
-            header('Location : index.php?erro=2');
-         }
-    
-         require_once('db.class.php');
-    
-         $id_user = $_SESSION['id'];
+    if (!isset($_SESSION['user'])){
+        header('Location : index.php?erro=2');
+     }
 
-         $ObjDB = new db();
-         $link = $ObjDB->connecta_mysql();
+     require_once('..\db.class.php');
 
-         $sql = "update users set user = '".$newUser."' where id=".$id_user;
+     $id_user = $_SESSION['id'];
+     $newEmail = $_POST['novo_email'];
+     $teste = $_POST['teste'];
+     echo $teste;
 
-         $result_sql_id = mysqli_query($link,$sql);
 
-         if($result_sql_id){
-            echo " Usuário alterado com sucesso";
-         }else{
-            echo " Erro ao alterar usuario";
-         }
 
 ?>
