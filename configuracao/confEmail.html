@@ -5,17 +5,17 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script type = "text/javascript">
 
-    $(document).ready(function () {
-        //$('#novo_email')   
+    $(document).ready(function () { 
 
         $('#salvar').click(function(){
             var novo_email = $('#email_novo').val();
+            $('#resposta1').html("");
             $.ajax({
                 url : "configuracao/change_email.php",
                 method : "POST",
-                data:{novo_email : novo_email, teste : "testdddde"},
+                data:{novo_email : novo_email, arg : "arg"},
                 success : function(data){
-                    $('#resposta').html(data);
+                    $('#resposta1').html(data);
                 }
             });
         });
@@ -24,14 +24,14 @@
 </script>
 <div class="panel panel-default">
     <div class="panel-body">
-        <form method="POST" action="change_email.php" >
+        <form class="" method="post" id="form_altera">
             <input type="text" name="campo_alterar" id="email_novo" class="form-control" placeholder = "Novo E-mail" maxlength = "140">
             <br>
-            <input type="submit" class="btn btn-primary pull-right"  value="Salvar">
+            <button class="btn btn-primary pull-right" id="salvar"  type = "button">Salvar</button>
         </form>
     </div>
     <div class="panel-body">
-        <div id = "resposta" name = "resposta" class="list-group"></div>
+        <div id = "resposta1" name = "resposta" class="list-group"></div>
     </div>
 </div>
 

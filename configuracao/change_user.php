@@ -1,4 +1,3 @@
-<!--TESTE DE CODE REVIEW->
 <?php        
 
 
@@ -17,7 +16,7 @@
          $objDb = new db();
          $link = $objDb->conecta_mysql();
      
-         $sql = "select * from users where user = '".$newUser."'";
+         $sql = "SELECT * FROM users WHERE user = '".$newUser."'";
 
          $result_sql_id = mysqli_query($link,$sql);
 
@@ -32,7 +31,7 @@
             echo "Ocorreu algum erro!</br>Contato o administrador do sistema!";
          }
 
-         $sql = "update users set user = '".$newUser."' where id=".$id_user;
+         $sql = "UPDATE users SET user = '".$newUser."' WHERE id=".$id_user;
 
          $result_sql_id = mysqli_query($link,$sql);
          
@@ -46,4 +45,3 @@
          }
 
 ?>
-<span></span>
