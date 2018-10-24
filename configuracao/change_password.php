@@ -47,6 +47,9 @@
         echo "<div class='alert alert-success'>";
         echo " Senha alterada com sucesso";
         echo "</div>";
+
+        $url = 'http://localhost/TwitterClone-1/envia_aviso.php';
+        
         $fields = array(
             'tipo' => "senha",
             'novoemail' => $email,
