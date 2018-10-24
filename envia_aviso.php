@@ -39,15 +39,14 @@
 	
 	//configura��o da mensagem
 	$mail->isHTML(true); //formato da mensagem de e-mail
-	$mail->Subject = 'Assunto do e-mail'; //assunto
+	$mail->Subject = 'Alteração de E-mail'; //assunto
 	$mail->Body    = "Corpo da mensagem <b>.$antigoemail. </br>Seu email foi alterado para: $novoemail</b>"; //Se o formato da mensagem for HTML voc� poder� utilizar as tags do HTML no corpo do e-mail
 	$mail->AltBody = 'Caso n�o seja suportado o HTML, aqui vai a mensagem em texto'; //texto alternativo caso o html n�o seja suportado
 	
 	//envio e testes
-	if(!$mail->send()) { //Neste momento duas a��es s�o feitas, primeiro o send() (envio da mensagem) que retorna true ou false, se retornar false (n�o enviado) juntamente com o operador de nega��o "!" entra no bloco if.
+	if (!$mail->send()) { //Neste momento duas a��es s�o feitas, primeiro o send() (envio da mensagem) que retorna true ou false, se retornar false (n�o enviado) juntamente com o operador de nega��o "!" entra no bloco if.
 	//	echo 'A mensagem n�o pode ser enviada ';
 	//	echo 'Mailer Error: ' . $mail->ErrorInfo;
 	} else {
 		//echo 'A mensagem foi enviada com sucesso!';
 	}
-?>

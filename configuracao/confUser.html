@@ -20,16 +20,16 @@
             $('#salvar').click(function() {
                 var novo_usuario = $('#novo_usuario').val();
                 $.ajax({
-                        url:'configuracao/change_user.php',
-                        method : 'POST',
-                        dataType: "html",
-                        data : {novo_usuario : novo_usuario},
-                        success : function(data){
-                            $('#resposta').html(data);
-                            $('#novo_usuario').val("");
-                        }
-                    });
+                    url:'configuracao/change_user.php',
+                    method : 'POST',
+                    dataType: "html",
+                    data : {novo_usuario : novo_usuario},
+                    success : function(data){
+                        $('#resposta').html(data);
+                        $('#novo_usuario').val("");
+                    }
                 });
+            });
     });
 
 </script>

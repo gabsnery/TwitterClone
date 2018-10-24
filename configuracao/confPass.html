@@ -1,15 +1,45 @@
+<!-- jquery - link cdn -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<!-- bootstrap - link cdn -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $('#salvar').click(function(){
+            var senhaAntiga = $('#senhaAntiga').val();
+            var senhaNova = $('#senhaNova').val();
+            var senhaNovaConfirma = $('#senhaNovaConfirma').val();
+            
+            $.ajax({
+                url:"configuracao/change_password",
+                data: {senhaAntiga:senhaAntiga,senhaNova:senhaNova,senhaNovaConfirma:senhaNovaConfirma},
+                method:"POST",
+                success: function(data){
+                    $('#resposta1').html(data);
+                }
+            });
+        });
+    });
+
+</script>
+
 <div class="panel panel-default">
-        <div class="panel-body">
-    
-            <form method="POST" action="change_password.php">
+        <div class="panel-body">    
+            <form class="" method="post" id="form_altera">
                 <input type="text" name="antiga" id="senhaAntiga" class="form-control" placeholder = "Senha antiga" maxlength = "140">
                 <br>
                 <input type="text" name="altera" id="senhaNova" class="form-control" placeholder = "Nova Senha" maxlength = "140">
                 <br>
-                <input type="text" name="altera" id="senhaNova2" class="form-control" placeholder = "Confirme Nova Senha" maxlength = "140">
+                <input type="text" name="altera" id="senhaNovaConfirma" class="form-control" placeholder = "Confirme Nova Senha" maxlength = "140">
                 <br>
-                <input type="submit" class="btn btn-primary pull-right"  value="Salvar">
+                <button class="btn btn-primary pull-right" id="salvar"  type = "button">Salvar</button>
             </form>
+            <div class="panel-body">
+                <div id = "resposta1" name = "resposta" class="list-group"></div>
+            </div>
         </div>
     </div>
     

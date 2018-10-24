@@ -27,6 +27,7 @@
 	$mail->SMTPSecure = 'tls'; //tipo de seguran�a
 	$mail->Port = 587; //porta de conex�o
 	
+	
 	//dados de autentica��o no servidor smtp
 	$mail->Username = $password_email; //usu�rio do smtp (email cadastrado no servidor)
 	$mail->Password = $email; //senha ****CUIDADO PARA N�O EXPOR ESSA INFORMA��O NA INTERNET OU NO F�RUM DE D�VIDAS DO CURSO****
