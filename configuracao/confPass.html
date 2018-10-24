@@ -14,7 +14,7 @@
             var senhaNovaConfirma = $('#senhaNovaConfirma').val();
             
             $.ajax({
-                url:"configuracao/change_password",
+                url:"configuracao/change_password.php",
                 data: {senhaAntiga:senhaAntiga,senhaNova:senhaNova,senhaNovaConfirma:senhaNovaConfirma},
                 method:"POST",
                 success: function(data){

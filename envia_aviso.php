@@ -3,8 +3,9 @@
 	/* script configurado para funcionar com o servi�o de smtp do gmail */
 	/* cuidado para n�o expor seus dados de usu�rio e senha de email */
 	/* o gmail implementa uma seguran�a para permitir ou n�o o acesso ao seu e-mail atrav�s de aplicativos menos seguros (como � caso), ao efetuar o teste de envio de e-mail consulte sua caixa de mensagem, caso esta configura��o esteja desabilitada voc� receber� um e-mail do google questionando se deve ou n�o habilitar tal acesso */
-  	$novoemail = $_POST['novoemail'];
-  	$antigoemail = $_POST['antigoemail'];
+  	$novoemail = isset($_POST['novoemail']) ? $_POST['novoemail'] : NULL ;
+  	$antigoemail = isset($_POST['antigoemail']) ? $_POST['antigoemail'] : NULL;
+  	$tipo = isset($_POST['tipo']) ? $_POST['tipo'] : NULL;
 
 	require_once('db.class.php');
 	require 'PHPMailer\PHPMailerAutoload.php';
@@ -40,7 +41,12 @@
 	//configura��o da mensagem
 	$mail->isHTML(true); //formato da mensagem de e-mail
 	$mail->Subject = 'Alteração de E-mail'; //assunto
-	$mail->Body    = "Corpo da mensagem <b>.$antigoemail. </br>Seu email foi alterado para: $novoemail</b>"; //Se o formato da mensagem for HTML voc� poder� utilizar as tags do HTML no corpo do e-mail
+	if ($tipo = "email"){
+		$mail->Body    = "Corpo da mensagem <b>.$antigoemail. </br>Seu email foi alterado para: $novoemail</b>"; //Se o formato da mensagem for HTML voc� poder� utilizar as tags do HTML no corpo do e-mail
+	} else {
+		$mail->Body    = "Corpo da mensagem <b>.$novoemail. </br>Sua senha foi alterada!</b>"; //Se o formato da mensagem for HTML voc� poder� utilizar as tags do HTML no corpo do e-mail
+	}
+	
 	$mail->AltBody = 'Caso n�o seja suportado o HTML, aqui vai a mensagem em texto'; //texto alternativo caso o html n�o seja suportado
 	
 	//envio e testes
